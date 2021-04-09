@@ -1,82 +1,113 @@
 import Head from 'next/head'
+import { useState } from 'react'
+
 
 export default function Home() {
+
+  const [location, setLocation] = useState('locations')
+  
+  function locationInputHandler(event){
+    event.preventDefault();
+    // alert(event.target.location.value)
+    setLocation(event.target.location.value)
+  
+  }
+
+  const [minCustomer, setMinCustomer] = useState('minCustomers')
+
+  function minCustomerHandler(event){
+    event.preventDefault();
+    setMinCustomer(event.target.minCustomer.value)
+  }
+
+  const [maxCustomer, setMaxCustomer] = useState('maxCustomers')
+
+  function maxCustomerHandler(event){
+    event.preventDefault();
+    setMaxCustomer(event.target.maxCustomer.value)
+    
+  }
+
+  const [avgCookies, setAvgCookies] = useState('avgCookiess')
+
+  function avgCookiesHandler(event){
+    event.preventDefault();
+    setAvgCookies(event.target.avgCookies.value)
+    
+  }
+  
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="">
       <Head>
-        <title>Create Next App</title>
+        <title>Cookie-stand-admin</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <header className="bg-green-500 text-gray-50">
+        <h1 className = "text-3xl text-black "> Cookie Stand Admin</h1>
+      </header>
+  
+        <main className="pt-7 ">
 
-      <main className="flex flex-col items-center justify-center flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+          <div className="my-3 bg-green-200 w-100 h-400">
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
+              <h2 className="pt-3 font-bold text-center">Create Cooke Stand</h2>
+              <br/>
+        
+            <form onSubmit={locationInputHandler} className="">
+              <label>Location</label>
+              <input  name="location" className="mx-1"></input>
+              <button className="flex flex-row"></button>
+            </form>
+            <br/>
+            <div className="flex flex-row ">
+              <div>
+                <form onSubmit={minCustomerHandler} className="">
+                  <label>Minimum Customers per Hour</label>
+                  <input name="minCustomer"className="pl-1"></input>
+                  <button></button>
+                </form>
+              </div>
 
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
+              <div>
+              <form onSubmit={maxCustomerHandler}>
+                  <label>Maximum Customers per Hour</label>
+                  <input name="maxCustomer" className="pl-1"></input>
+                  <button></button>
+                </form>
+              </div>
 
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
+              <div>
+              <form onSubmit={avgCookiesHandler}>
+                  <label>Average Cookies per Sale</label> 
+                  <input name="avgCookies" className="pl-1"></input>
+                  <button></button>
+              </form>
+              </div>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
+              <div>
+                <form>
+                    <button className="px-20 m-2 bg-green-600 py3" >Create</button>
+                </form>     
+              </div>
+            </div>
+            <br/>
+          </div>
+            <p className= "pt-3 text-center">Report Table Coming Soon...</p>
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+          <div className="flex flex-row pt-6 px-44">
+            <p className="px-5">"location":  "{location}", </p>
+            <p className="px-5">"minCustomer": {minCustomer},</p>
+            <p className="px-5">"MaxCustomer": {maxCustomer},</p>
+            <p className="px-5">"avgCookies": {avgCookies},</p>
+          </div>
 
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
+        </main>
+     
+      <footer className="mt-8 bg-green-500 text-gray-50">
+        <p className="text-black ">@2021</p>
       </footer>
     </div>
   )
 }
+
+
