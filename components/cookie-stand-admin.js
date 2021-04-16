@@ -51,20 +51,32 @@ export default function CookieStandAdmin({ token, onLogout, username }) {
     }
 
     return (
-        <div>
+        <div className="min-h-screen py-5 bg-green-50">
+
+            <div className="">
             <Head>
                 <title>Cookie Stand Admin</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <CookieStandHeader username={username} onLogout={onLogout} />
+            </div>
 
-            <main>
+           
+            <main className="w-11/12 p-4 m-auto">
+                <div className="p-4 my-4 bg-green-200 rounded">
                 <CookieStandForm onCreate={createHandler}/>
-                <CookieStandTable stands={cookieStands} onDelete={deleteHandler}/>
-            </main>
+                </div>
 
+                <div className="">
+                <CookieStandTable stands={cookieStands} onDelete={deleteHandler}/>
+                </div>
+            </main>
+          
+
+            <div className="mt-12 text-center bg-green-500 h-9 text-black-50">
             <CookieStandFooter reports={cookieStands}/>
+            </div>
         </div>
     )
 }

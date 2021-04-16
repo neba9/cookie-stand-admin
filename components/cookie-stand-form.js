@@ -28,26 +28,42 @@ export default function CookieStandForm({ onCreate }) {
     }
     return (
         <form onSubmit={submitHandler}>
-            <div>
-                <label htmlFor="location">Add Location</label>
+            <div className="">
+
+            <div className="">
+                <div className="text-xs font-extrabold text-center">
+                <label htmlFor="location">ADD LOCATION</label>
+                </div>
+                <div className="text-center">
                 <input type="text" name="location" id="location" value={values.location} onChange={inputChangeHandler} placeholder="Cookie Stand Location" />
+                </div>
+            </div>
+          
+            <button className="rounded bg-green-700 text-right py-1.5" type="submit">Create Stand</button>
+            
+
             </div>
 
-            <button type="submit">Create Stand</button>
-
-
+            <div className="flex-row">
+                <div>
             <FormInputSection>
                 <label htmlFor="min">Minimum Customers per Hour</label>
                 <input type="number" name="min" id="min" value={values.min} onChange={inputChangeHandler} />
             </FormInputSection>
+                </div>
+                <div>
             <FormInputSection>
                 <label htmlFor="max">Maximum Customers per Hour</label>
                 <input type="number" name="max" id="max" value={values.max} onChange={inputChangeHandler} />
             </FormInputSection>
+                </div>
+                <div>
             <FormInputSection>
                 <label htmlFor="avg">Average Cookies per Sale</label>
                 <input type="number" name="avg" id="avg" value={values.avg} onChange={inputChangeHandler} />
             </FormInputSection>
+                </div>
+            </div>
         </form>
     );
 }
