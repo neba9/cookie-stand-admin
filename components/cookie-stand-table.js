@@ -3,10 +3,10 @@ import { hours } from '../data'
 export default function CookieStandTable({ stands, onDelete }) {
 
     return (
-        <div className="w-11/12 p-4 m-auto border-2 border-gray-500 rounded table-auto">
+        <div className="">
         <Table className="w-9/12 m-auto ">
             <thead>
-                <tr className="">
+                <tr className="w-11/12 p-4 m-auto border-2 border-gray-500 rounded table-auto">
 
                     <TH>Location</TH>
                     {hours.map(slot => (
@@ -15,7 +15,7 @@ export default function CookieStandTable({ stands, onDelete }) {
                     <TH>Totals</TH>
                 </tr>
             </thead>
-            <tbody className="">
+            <tbody className="w-11/12 p-4 m-auto border-2 border-gray-500 rounded table-auto">
                 {stands.map((stand, i) => {
 
                     return (

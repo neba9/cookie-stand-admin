@@ -10,7 +10,7 @@ export default function CookieStandHeader({ username, onLogout }) {
                 </h1>
            
 
-            <div  className="flex-row-reverse text-right">
+            <div className="flex flex-row text-right">
                 <div>
                 <p >{username}</p>
                 </div>
